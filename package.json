@@ -8,6 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
@@ -24,6 +25,8 @@
     "styled-components": "^6.0.7",
     "styled-reset": "^4.5.1",
 =======
+=======
+>>>>>>> be465a6 (feat: snspage모달창구현, 목데이터 받아와야함)
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -32,7 +35,10 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.7",
+<<<<<<< HEAD
 >>>>>>> 77946d4 (reabase : mreged main)
+=======
+>>>>>>> be465a6 (feat: snspage모달창구현, 목데이터 받아와야함)
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -59,10 +65,13 @@
       "last 1 safari version"
     ]
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2"
 =======
 >>>>>>> 77946d4 (reabase : mreged main)
+=======
+>>>>>>> be465a6 (feat: snspage모달창구현, 목데이터 받아와야함)
   }
 }
