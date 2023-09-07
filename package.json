@@ -10,6 +10,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 13ac48e (reabase : mreged main)
     "@react-icons/all-files": "^4.1.0",
@@ -33,6 +34,8 @@
 >>>>>>> be465a6 (feat: snspage모달창구현, 목데이터 받아와야함)
 =======
 >>>>>>> 13ac48e (reabase : mreged main)
+=======
+>>>>>>> 451e7a7 (feat: snspage모달창구현, 목데이터 받아와야함)
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -43,12 +46,15 @@
     "styled-components": "^6.0.7",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 77946d4 (reabase : mreged main)
 =======
 >>>>>>> be465a6 (feat: snspage모달창구현, 목데이터 받아와야함)
 =======
 >>>>>>> 77946d4 (reabase : mreged main)
 >>>>>>> 13ac48e (reabase : mreged main)
+=======
+>>>>>>> 451e7a7 (feat: snspage모달창구현, 목데이터 받아와야함)
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -77,6 +83,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 13ac48e (reabase : mreged main)
   },
@@ -89,5 +96,7 @@
 >>>>>>> be465a6 (feat: snspage모달창구현, 목데이터 받아와야함)
 =======
 >>>>>>> 13ac48e (reabase : mreged main)
+=======
+>>>>>>> 451e7a7 (feat: snspage모달창구현, 목데이터 받아와야함)
   }
 }
