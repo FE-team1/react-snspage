@@ -1,21 +1,41 @@
+import { faker } from '@faker-js/faker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { styled } from 'styled-components';
 // import { faPen, faBan, faCheck } from '@fortawesome/free-solid-svg-icons';
 // 아이콘 가져오기
 
-const AddOpenModal = ({setList}) => {
+const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const onAddWrite = (e) => {
         e.preventDefault();
-        const newWrite = {title, content};
-        setList((prev) => [...prev], newWrite);
+        const title = e.target.title;
+        const content = e.target.content;
+        setContentList((prev) => [{
+            Post_img: [],
+            // createdAt부분이 toString이 떠서 mockPost부분 그대로 복사 했음!
+            createdAt : faker.date.between( //post 작성시간
+            "2023-01-01T00:00:00.000Z",
+            "2023-01-31T00:00:00.000Z"
+            ),
+        User: {
+            nickName: "X",
+            profileImg: null,
+            },
+                title,
+                content,
+                myPost: true,
+        },
+        ...prev,
+        ]);
+        setIsOpenAddModal(false);
         setTitle('');
         setContent('');
         console.log(title, content)
     }
-    return (
+
+return (
     <Wrapper>
             {/* <header>
                 <h1>게시글 작성</h1>

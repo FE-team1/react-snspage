@@ -44,3 +44,44 @@ const OneAdd = () => {
 
 export default OneAdd;
 
+const Wrapper =  styled.div`
+    background-color:  white;
+    display: flex;
+    width: 800px;
+    height: 100vh;
+    /* 왜 100%...???왜 짤리지..? */
+    margin: 0 auto;
+    border-radius: 30px;
+`
+
+const Logo = styled.h3`
+    position: absolute;
+    font-size: 30px;
+    top: 20px;
+    left: 460px;
+
+`
+
+const ContentWrapper = styled.div `
+    position: relative;
+    top: 80px;
+    justify-content: center;
+    align-items: center;
+`
+
+const ProfileImg = styled.img`
+width: 50px;
+height: 50px; 
+border-radius: 70%;
+float: left;
+margin: 0px 40px 10px 20px;
+`
+
+const PostImg = styled.img`
+    width: 100%;
+    height: 600px;
+`
+
+const BottomIcon = styled.div`
+    padding-left: 20px;
+`

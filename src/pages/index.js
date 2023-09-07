@@ -12,20 +12,10 @@ const SnsPage = () => {
     // component는 한 가지이상의 기능을 하는 UI를 합치는 것
     // title photo content가 계속 반복된다 반복되는 UI -> 컴포넌트화 시키기
     // 데이터가 추가되도록 해야한다.
-    const [list, setList] = useState([
-        {
-            title: "example-title",
-            content: "example-content",
-            state: false,
-        },
-        {
-            title: "example-title2",
-            content: "example-content2",
-            state: false,
-        },
-    ])
-
-    
+    // 목포스트 불러오기 상태로 불러온다!
+    const [contentList, setContentList] = useState(MockPosts);
+    console.log(contentList)
+    // 맵돌려서 여러개 뜨게..?
 
     return (
         <>  
@@ -44,10 +34,10 @@ const SnsPage = () => {
                 </div>
                 <button onClick={() => {
                     setIsOpenAddModal(true);
-                }}>작성</button>
-            </div>
-            {/* {contentList.map((list) => (oneAdd list={list})) */}
-            <OneAdd></OneAdd>
+                    }}>작성</ToyButton>
+                </Button>
+            </Wrapper>
+            {contentList.map((list) => (<OneAdd list={list}/>))}
             {/* 목데이터 필요한 부분 -> 반복되는 UI처리해야한다 */}
             {/* list는 목데이터 값 */}
         </>
@@ -55,4 +45,39 @@ const SnsPage = () => {
 }
 
 export default SnsPage;
+
+const Wrapper = styled.div`
+    position: fixed;
+    box-sizing: border-box;
+    background: white;
+    width : 340px;
+    height: 240px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+`
+
+const ProfileImg = styled.img`
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%;
+    overflow: hidden;
+    float: left;
+    margin: 10px 40px 10px 10px;
+`
+
+const ProfileBox = styled.div`
+    padding-top: 50px;
+`
+
+const User  = styled.p`
+    font-size: 1.4rem;
+    padding-bottom: 18px;
+`
+
+const Button = styled.div `
+    position: relative;
+    top: 10px;
+    left: 50px;
+`
+
 
