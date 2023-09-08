@@ -44,13 +44,17 @@ return (
                 {/* 나중에 밑에 선그을 것 ------ */}
             <Form onSubmit={onAddWrite}>
                 <FormHeader>
-                    <h1>게시글 작성</h1>
-                    <button style={{width:'30px', height:'30px'}}>x</button>
+                    <h3>게시글 작성</h3>
+                    <button style={{width:'20px', height:'20px', margin: "0px 0px 30px 130px"}} 
+                    onClick={() => {
+                        setIsOpenAddModal(false);
+                    }}>X</button>
                 </FormHeader>
-                <p><input value={title} placeholder="제목을 입력해주세요" onChange={(e) => setTitle(e.target.value)}></input></p>
-                <p><textarea value={content} placeholder="내용을 입력해주세요" onChange={(e) => setContent(e.target.value)}></textarea></p>
-                <button>사진 추가하기</button>
-                <button>작성</button> 
+                <p><input value={title} placeholder="제목을 입력해주세요" onChange={(e) => setTitle(e.target.value)} style={{width: '100%'}}></input></p>
+                <p><textarea value={content} placeholder="내용을 입력해주세요" style={{width: '100%', height: '6.5em', resize:'none', display:'flex'}}
+                onChange={(e) => setContent(e.target.value)}></textarea></p>
+                <p><button style={{margin:'15px 0px'}}>사진 추가하기</button></p>
+                <ToyButton> 작성 </ToyButton>
                 {/* Button component써야함 */}
             </Form>
     </Wrapper>

@@ -55,9 +55,13 @@ const SnsPage = () => {
                     }}>작성</ToyButton>
                 </Button>
             </Wrapper>
-            {contentList.map((list) => (<OneAdd list={list}/>))}
+            {/* 렌더링시 map 오류관련 해결중 .. 반복 실행시 undefined*/}
+            {contentList && contentList.map((list) => (<OnePost list={list} contentList={contentList} setContentList={setContentList}/>))}
             {/* 목데이터 필요한 부분 -> 반복되는 UI처리해야한다 */}
             {/* list는 목데이터 값 */}
+            <Layout >
+				<Paging  />
+		    </Layout>
         </>
     )
 }
