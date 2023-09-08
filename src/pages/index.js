@@ -28,12 +28,30 @@ const SnsPage = () => {
             <div className="userInfo">
                 <div>
                     {/* img src로 바꿔야함 */}
-                    <div className="profileImg"></div>
-                    <div className="nickName">user</div>
-                    <button>로그아웃</button>
-                </div>
-                <button onClick={() => {
-                    setIsOpenAddModal(true);
+                    {/* 1. 이부분을 그냥 따로 사진과 닉네임을 가져와야 할지 고민.. 
+                    목데이터를 가져오니 create과정에서 충돌이 일어난다 */}
+                    {/* 독립적으로 가져오기! */}
+                    {contentList.map((list) => 
+                    <>
+                        <ProfileImg src={list.User.profileImg}></ProfileImg>
+                        <ProfileBox>
+                            <User>{list.User.nickName}</User>
+                            <button>로그아웃</button>
+                        </ProfileBox>
+                    </>
+                        )} */}
+                        {/* 독립적으로 가져오기 */}
+                        {/* 왜 안뜨는가 */}
+                        <ProfileImg src="../img/IMG_8961.JPG"></ProfileImg>
+                        <ProfileBox>
+                            <User>김이름</User>
+                            <button>로그아웃</button>
+                        </ProfileBox>
+                    </div>
+                </userInfo>
+                <Button>
+                    <ToyButton onClick={() => {
+                        setIsOpenAddModal(true);
                     }}>작성</ToyButton>
                 </Button>
             </Wrapper>
