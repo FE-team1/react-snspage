@@ -1,14 +1,14 @@
 import { styled } from "styled-components";
 import { flexCenter } from "../styles/common";
 
-const ToyInput = ({ label, isValid, error, ...rest }) => {
+const ToyInput = ({ label, error, ...rest }) => {
   return (
     <>
       <p>
         <label>{label}</label>
         <input {...rest} />
       </p>
-      {isValid ? <p>{error}</p> : ""}
+      {error ? <p>{error}</p> : ""}
     </>
   );
 };

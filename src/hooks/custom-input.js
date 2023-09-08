@@ -1,3 +1,5 @@
+// custom hook
+
 import { useState } from "react";
 
 const useInput = (initialValue) => {
