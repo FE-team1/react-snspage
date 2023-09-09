@@ -1,12 +1,10 @@
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import { styled } from "styled-components";
 import { HiMiniPaperAirplane } from "react-icons/hi2";
 
 const OneComment = ({comment}) => {
 
     console.log(comment)
-
-    // 수정
     const [isEditMode, setIsEditMode] = useState(false);
     // comment가 왜 state기본값으로 설정이 안되는 걸까
     // 혹시 몰라 MockPosts.Comments로 가져와봤는데 개같이 실패
@@ -16,7 +14,8 @@ const OneComment = ({comment}) => {
     // 맞는데 외 않 되;; (심한욕)
     console.log('commentList:', commentList)
     console.log('commentInput:', commentInput.current)
-
+    console.log(commentList.User.nickName)
+    console.log(commentList.User.profileImg)
 
     const onEditComment = () =>  {
         if(!isEditMode) return setIsEditMode(true);
@@ -57,21 +56,21 @@ const OneComment = ({comment}) => {
                     <ProfileImg src={commentList.User.profileImg}></ProfileImg>
                     <p style={{fontWeight:'bold', margin:'6px 75px'}}>{commentList.User.nickName}</p>
                     {/* editmode가 true면 수정할 수 있게 한다. : 아니면 원래 comment.content가나옴 */}
-                    <Textarea>{isEditMode ?
+                    <ContentBox>{isEditMode ?
                     <form onSubmit={onUpdateComment}>
-                        <input defaultValue={comment.content} ref={commentInput}
+                        <input id={commentList.User.id} defaultValue={comment.content} ref={commentInput}
                         style={{width: '500px', height: '2.5em', border: 'none', resize:'none', display:'flex'}}></input> 
                         <HiMiniPaperAirplane /> 
                     </form>
-                    : comment.content}
-                        </Textarea>
+                    : comment.content }
+                        </ContentBox>
                 </CommentWrapper>
                     {/* 누르면 editMode되는 이벤트 */}
-                    <a href="#" onClick={onEditComment}>수정</a> &nbsp;
-                    <a href="#">삭제</a>
+                    <button onClick={onEditComment}>수정</button> &nbsp;
+                    <button onClick={onDeleteComment}>삭제</button>
                     {/* 수정해야할 경우 comment.content수정  */}
                     {/* ref로 줄경우 textarea에 기본값을 줄 수 없다 */}
-                <input placeholder="댓글을 입력하세요..."></input>
+                {/* 왜이렇게 많이 생기는 걸까요..ㅋㅋ 난감 */}
                 <HiMiniPaperAirplane />
             </div>
         </>
@@ -90,9 +89,17 @@ const CommentWrapper = styled.div`
 `
 
 const ProfileImg = styled.img`
-width: 50px;
-height: 50px; 
-border-radius: 70%;
-float: left;
-margin: 0px 40px 10px 20px;
+    width: 50px;
+    height: 50px; 
+    border-radius: 70%;
+    float: left;
+    margin: 10px;
+`
+
+const ContentBox = styled.div`
+    position: relative;
+    box-sizing: border-box;
+    width: 600px;
+    left: 5px;
+
 `

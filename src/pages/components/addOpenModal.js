@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { styled } from 'styled-components';
+import ToyButton from '../../components/Button';
 // import { faPen, faBan, faCheck } from '@fortawesome/free-solid-svg-icons';
 // 아이콘 가져오기
 
@@ -10,8 +10,7 @@ const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
     const [content, setContent] = useState('');
     const onAddWrite = (e) => {
         e.preventDefault();
-        const title = e.target.title;
-        const content = e.target.content;
+        const newWrite = {title, content}
         setContentList((prev) => [{
             Post_img: [],
             // createdAt부분이 toString이 떠서 mockPost부분 그대로 복사 했음!
@@ -20,11 +19,14 @@ const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
             "2023-01-31T00:00:00.000Z"
             ),
         User: {
-            nickName: "X",
-            profileImg: null,
+            id: Math.floor(Math.random() * 1000000),
+            nickName: "김땡땡",
+            profileImg: '/img/IMG_8961.JPG',
             },
+                newWrite,
                 title,
                 content,
+                id: Math.floor(Math.random() * 1000000),
                 myPost: true,
         },
         ...prev,
@@ -37,10 +39,6 @@ const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
 
 return (
     <Wrapper>
-            {/* <header>
-                <h1>게시글 작성</h1>
-                <button>x</button>
-            </header> */}
                 {/* 나중에 밑에 선그을 것 ------ */}
             <Form onSubmit={onAddWrite}>
                 <FormHeader>
@@ -85,8 +83,4 @@ const Form = styled.form`
     border-radius: 8px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     padding: 32px;
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center;
-    flex-direction: column; */
 `;
