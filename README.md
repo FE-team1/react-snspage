@@ -1,4 +1,3 @@
-<img width="1680" alt="KakaoTalk_Photo_2023-09-09-13-09-04 003" src="https://github.com/FE-team1/react-snspage/assets/134191815/744d68de-1b82-47e6-88c3-79d2ced7b10c"><img width="1680" alt="KakaoTalk_Photo_2023-09-09-13-09-04 002" src="https://github.com/FE-team1/react-snspage/assets/134191815/427bc3c0-02ff-40ae-94da-f60bfecd5c8d"><img width="1680" alt="KakaoTalk_Photo_2023-09-09-13-09-04 001" src="https://github.com/FE-team1/react-snspage/assets/134191815/e81fb7e3-d4eb-4498-ae66-283c5b05edc2"># react-snspage
 
 ## ➡️ 프로젝트 소개
 
