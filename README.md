@@ -38,7 +38,7 @@
 
 📋 스프린트
 
-<a href=""></a>
+<a href="https://www.notion.so/a3a1f57ea5b74136a6eca444347b29c9?pvs=4">스프린트 notion</a>
 
 📅 데일리 스크럼
 
