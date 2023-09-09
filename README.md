@@ -21,7 +21,7 @@
 
 
   - 테마 구현(레이아웃 디자인), CRUD / 가영
-  - 목 데이터 생성, 페이지네이션 / 상준
+  - 목 데이터 생성, 페이지네이션, README.md 작성 / 상준
   - 로그인 구현, 공용 컴포넌트 생성 / 희식
 
 
@@ -51,6 +51,30 @@
 </table>
 
 ## ➡️ 폴더 구조 
+src
+  📁__mock__
+    mockPost.js
+  📁components
+    Button.js
+    footer.js
+    Input.js
+  📁hooks
+    costom-input.js
+  📁pages
+   📁board
+     index.js
+   📁components
+     addOpenModal.js
+     oneComment.js
+     onePost.js
+     pagination.js
+     Paging.css
+     style.js
+    index.js
+  📁routes
+    routes.js
+  📁utils
+    validate.js
 
 ## ➡️ 사용 라이브러리
 
