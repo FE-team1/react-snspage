@@ -55,28 +55,28 @@
    ```javascript
 - src
   - __mock__
-    - mockPost.js
+      - mockPost.js
   - components
-    - Buttons.js
-    - footer.js
-    - Input.js
+      - Buttons.js
+      - footer.js
+      - Input.js
   - hooks
-    - custom-input.js
+      - custom-input.js
   - pages
-    - board
-      - index.js
+      - board
+        - index.js
   - componenets
-    - addOpenModal.js
-    - oneComment.js
-    - onePost.js
-    - pagination.js
-    - Paging.css
-    - style.js
+      - addOpenModal.js
+      - oneComment.js
+      - onePost.js
+      - pagination.js
+      - Paging.css
+      - style.js
    - index.js
   - routes
-    - routes.js
+      - routes.js
   - utils
-    - validate.js
+      - validate.js
 
 ```
 
