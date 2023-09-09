@@ -51,29 +51,29 @@
 </table>
 
 ## ➡️ 폴더 구조 
-src
-  📁__mock__
-    mockPost.js
-  📁components
-    Button.js
-    footer.js
-    Input.js
-  📁hooks
-    costom-input.js
-  📁pages
-   📁board
-     index.js
-   📁components
-     addOpenModal.js
-     oneComment.js
-     onePost.js
-     pagination.js
-     Paging.css
-     style.js
-    index.js
-  📁routes
-    routes.js
-  📁utils
+src </br>
+  📁__mock__ </br>
+    mockPost.js </br>
+  📁components </br>
+    Button.js </br>
+    footer.js </br>
+    Input.js </br>
+  📁hooks </br>
+    costom-input.js </br>
+  📁pages </br>
+   📁board </br>
+     index.js </br>
+   📁components </br>
+     addOpenModal.js </br>
+     oneComment.js </br>
+     onePost.js </br>
+     pagination.js </br>
+     Paging.css </br>
+     style.js </br>
+    index.js </br>
+  📁routes </br>
+    routes.js </br>
+  📁utils </br>
     validate.js
 
 ## ➡️ 사용 라이브러리
