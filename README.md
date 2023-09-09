@@ -76,6 +76,48 @@ src </br>
   📁utils </br>
     validate.js
 
+    ```javascript
+- components
+  - layout
+    - header
+      - Header.js
+    - Layout.js
+  - slide
+    - CustomArray.js
+    - Slide.js
+- context
+  - commentEditMode.js
+  - editMode.js
+  - item.js
+  - prev.js
+- data
+  - bestMock.js
+  - catsMock.js
+- hooks
+  - use-input.js
+- pages
+  - best
+    - style
+      - StyledReactPaginate.js
+    - Best.js
+    - BestItems.js
+  - main
+    - components
+      - Comments.js
+      - ICons.js
+      - TextArea.js
+    - modal
+      - AddModal.js
+    - Main.js
+- routes
+  - Routing
+- style
+  - common.js
+  - global.js
+  - theme.js
+
+```
+
 ## ➡️ 사용 라이브러리
 
 ```
