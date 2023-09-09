@@ -53,7 +53,7 @@
 ## ➡️ 폴더 구조 
 
    ```javascript
-- src
+src
   - __mock__
       - mockPost.js
   - components
