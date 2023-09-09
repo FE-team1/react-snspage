@@ -72,7 +72,7 @@
       - pagination.js
       - Paging.css
       - style.js
-   - index.js
+    - index.js
   - routes
       - routes.js
   - utils
