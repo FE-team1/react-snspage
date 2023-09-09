@@ -51,6 +51,7 @@
 </table>
 
 ## ➡️ 폴더 구조 
+```javascript
 src </br>
   📁__mock__ </br>
     mockPost.js </br>
@@ -75,6 +76,7 @@ src </br>
     routes.js </br>
   📁utils </br>
     validate.js
+```
 
     ```javascript
 - components
