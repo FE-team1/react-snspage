@@ -51,72 +51,32 @@
 </table>
 
 ## ➡️ 폴더 구조 
-```javascript
-src </br>
-  📁__mock__ </br>
-    mockPost.js </br>
-  📁components </br>
-    Button.js </br>
-    footer.js </br>
-    Input.js </br>
-  📁hooks </br>
-    costom-input.js </br>
-  📁pages </br>
-   📁board </br>
-     index.js </br>
-   📁components </br>
-     addOpenModal.js </br>
-     oneComment.js </br>
-     onePost.js </br>
-     pagination.js </br>
-     Paging.css </br>
-     style.js </br>
-    index.js </br>
-  📁routes </br>
-    routes.js </br>
-  📁utils </br>
-    validate.js
-```
 
-    ```javascript
-- components
-  - layout
-    - header
-      - Header.js
-    - Layout.js
-  - slide
-    - CustomArray.js
-    - Slide.js
-- context
-  - commentEditMode.js
-  - editMode.js
-  - item.js
-  - prev.js
-- data
-  - bestMock.js
-  - catsMock.js
-- hooks
-  - use-input.js
-- pages
-  - best
-    - style
-      - StyledReactPaginate.js
-    - Best.js
-    - BestItems.js
-  - main
-    - components
-      - Comments.js
-      - ICons.js
-      - TextArea.js
-    - modal
-      - AddModal.js
-    - Main.js
-- routes
-  - Routing
-- style
-  - common.js
-  - global.js
-  - theme.js
+   ```javascript
+- src
+  - __mock__
+    - mockPost.js
+  - components
+    - Buttons.js
+    - footer.js
+    - Input.js
+  - hooks
+    - custom-input.js
+  - pages
+    - board
+      - index.js
+  - componenets
+    - addOpenModal.js
+    - oneComment.js
+    - onePost.js
+    - pagination.js
+    - Paging.css
+    - style.js
+   - index.js
+  - routes
+    - routes.js
+  - utils
+    - validate.js
 
 ```
 
