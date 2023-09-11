@@ -1,5 +1,4 @@
 
-
 const ToyInput = ({ label, error, ...rest }) => {
   return (
     <>

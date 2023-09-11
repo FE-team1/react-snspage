@@ -2,68 +2,67 @@ import React, { useRef, useState } from "react";
 import { styled } from "styled-components";
 import { HiMiniPaperAirplane } from "react-icons/hi2";
 
-const OneComment = ({comment}) => {
-
-    console.log(comment)
+// setPosts 부모로 setPosts 프롭스드릴링일어남
+const OneComment = ({comment, editComment, addComment, deleteComment}) => {
     const [isEditMode, setIsEditMode] = useState(false);
     // comment가 왜 state기본값으로 설정이 안되는 걸까
-    // 혹시 몰라 MockPosts.Comments로 가져와봤는데 개같이 실패
-    const [commentList, setCommentList] = useState(comment);
-    const commentInput = useRef(null)
+    // 혹시 몰라 MockPosts.Comments로 가져와봤는데 실패
     // 콘솔찍어보면 잘가져와진다 콘솔을 보고 다시 천천히 선택자를 맞춰봐야겠다
     // 맞는데 외 않 되;; (심한욕)
-    console.log('commentList:', commentList)
-    console.log('commentInput:', commentInput.current)
-    console.log(commentList.User.nickName)
-    console.log(commentList.User.profileImg)
-
     const onEditComment = () =>  {
         if(!isEditMode) return setIsEditMode(true);
+        editComment();
+        setIsEditMode(false);
     }
-
+    console.log()
+    
+    const onDeleteComment = () => {
+        deleteComment();
+    }
     // 어떻게 하는건지 모르겠다 아오,.... id값을 제대로 가지고온건지도 모르겠고 화낭다 
     // 뭔가 .value .current이런 거에대한 개념이 아직 부족한듯하다...
-    const onUpdateComment = (e) => {
-        e.preventDefault(); 
-        setCommentList((commentList) => {
-            const updateCommentList = [];
-            for(let i=0; i<commentList.length; i++) {
-                if(commentList[i] === comment){
-                    updateCommentList.push(commentInput.current.value);
-                }
-            }
-            setCommentList(updateCommentList)
-        })
-    setIsEditMode(false);
-    }
+    // const editComment = (e) => {
+    //     e.preventDefault(); 
+    //     setCommentList((commentList) => {
+    //         const updateCommentList = [];
+    //         for(let i=0; i<commentList.length; i++) {
+    //             if(commentList[i] === comment){
+    //                 updateCommentList.push(commentInput.current.value);
+    //             }
+    //         }
+    //         setCommentList(updateCommentList)
+    //     })
+    // setIsEditMode(false);
+    // }
 
-    const onDeleteComment = () => {
-        const newCommentList = [];
-        for(let i=0; i<commentList.length; i++) {
-            if(commentList[i] !== comment) {
-                newCommentList.push(comment)
-            }
-        }
-        setCommentList(newCommentList)
-    }
+    // const onDeleteComment = () => {
+    //     const newComment = [];
+    //     for(let i=0; i<comment.length; i++) {
+    //         if(comment[i] !== comment) {
+    //             newComment.push(comment)
+    //         }
+    //     }
+    //     setCommentList(newComment)
+    // }
+
+    // setPosts(prev) 프롭스드릴링 해소를 위해서는 부모에서 작업하는게 낫다 return prev
 
     return(
         <>
             <div>
                 <CommentWrapper>
-                    {/* 왜 CommentList.User가 안되나요ㅠㅠ?? */}
                     {/* Cannot read properties of undefined (reading 'User') 이거 왜 뜨냐 왜못읽어. */}
-                    <ProfileImg src={commentList.User.profileImg}></ProfileImg>
-                    <p style={{fontWeight:'bold', margin:'6px 75px'}}>{commentList.User.nickName}</p>
+                    <ProfileImg src={comment.User.profileImg}></ProfileImg>
+                    <p style={{fontWeight:'bold', margin:'6px 75px'}}>{comment.User.nickName}</p>
                     {/* editmode가 true면 수정할 수 있게 한다. : 아니면 원래 comment.content가나옴 */}
                     <ContentBox>{isEditMode ?
-                    <form onSubmit={onUpdateComment}>
-                        <input id={commentList.User.id} defaultValue={comment.content} ref={commentInput}
+                    <form onSubmit={editComment}>
+                        <input id={comment.User.id} defaultValue={comment.content}
                         style={{width: '500px', height: '2.5em', border: 'none', resize:'none', display:'flex'}}></input> 
                         <HiMiniPaperAirplane /> 
                     </form>
                     : comment.content }
-                        </ContentBox>
+                    </ContentBox>
                 </CommentWrapper>
                     {/* 누르면 editMode되는 이벤트 */}
                     <button onClick={onEditComment}>수정</button> &nbsp;
@@ -85,7 +84,7 @@ const CommentWrapper = styled.div`
     width: 100%;
     flex-direction: column;
     /* 왜 세로로 안뜰까요.?????? */
-    float: left;
+    display: flex;
 `
 
 const ProfileImg = styled.img`

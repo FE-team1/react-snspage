@@ -7,7 +7,7 @@ import useInput from "../../hooks/custom-input";
 import Footer from "../../components/footer";
 import { validate } from "../../utils/validate";
 
-const LoginPage = () => {
+const MainPage = () => {
   const navigate = useNavigate();
 
   // onSubmit form
@@ -41,7 +41,7 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default MainPage;
 
 const Wrapper = styled.form`
   ${flexCenter}

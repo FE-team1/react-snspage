@@ -1,14 +1,14 @@
 import {
     createBrowserRouter,
 } from "react-router-dom";
-import SnsPage from "../pages";
-import LoginPage from "../pages/board";
+import SnsPage from "../pages/sns";
+import MainPage from "../pages/login";
 
 
 export const route = createBrowserRouter ([
     {
       path: "/",
-      element: <LoginPage />,
+      element: <MainPage />,
     },
     {
       path: "/snspage",

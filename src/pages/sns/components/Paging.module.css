@@ -1,3 +1,6 @@
+/* css툴: 차크라 무이 테일윈드 판다 style.js와 css중에 하나만 쓰기 */
+/* 유지보수는 style.js가 용이 퓨어css는 빠르긴함 */
+
 .pagination {
     display: flex;
     justify-content: center;

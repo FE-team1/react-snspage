@@ -1,17 +1,18 @@
 import { faker } from '@faker-js/faker';
 import { useState } from 'react';
 import { styled } from 'styled-components';
-import ToyButton from '../../components/Button';
+import ToyButton from '../../../components/Button';
+
 // import { faPen, faBan, faCheck } from '@fortawesome/free-solid-svg-icons';
 // 아이콘 가져오기
 
-const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
+const AddPostModal = ({setPosts, posts, setIsAddPostModal}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const onAddWrite = (e) => {
+    const onAddPost = (e) => {
         e.preventDefault();
-        const newWrite = {title, content}
-        setContentList((prev) => [{
+        const newPost = {title, content}
+        setPosts((prev) => [{
             Post_img: [],
             // createdAt부분이 toString이 떠서 mockPost부분 그대로 복사 했음!
             createdAt : faker.date.between( //post 작성시간
@@ -19,11 +20,12 @@ const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
             "2023-01-31T00:00:00.000Z"
             ),
         User: {
-            id: Math.floor(Math.random() * 1000000),
+            // 고정하기 id:1,
+            id: 1,
             nickName: "김땡땡",
             profileImg: '/img/IMG_8961.JPG',
             },
-                newWrite,
+                newPost,
                 title,
                 content,
                 id: Math.floor(Math.random() * 1000000),
@@ -31,7 +33,7 @@ const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
         },
         ...prev,
         ]);
-        setIsOpenAddModal(false);
+        setIsAddPostModal(false);
         setTitle('');
         setContent('');
         console.log(title, content)
@@ -40,12 +42,12 @@ const AddOpenModal = ({setContentList, setIsOpenAddModal}) => {
 return (
     <Wrapper>
                 {/* 나중에 밑에 선그을 것 ------ */}
-            <Form onSubmit={onAddWrite}>
+            <Form onSubmit={onAddPost}>
                 <FormHeader>
                     <h3>게시글 작성</h3>
                     <button style={{width:'20px', height:'20px', margin: "0px 0px 30px 130px"}} 
                     onClick={() => {
-                        setIsOpenAddModal(false);
+                        setIsAddPostModal(false);
                     }}>X</button>
                 </FormHeader>
                 <p><input value={title} placeholder="제목을 입력해주세요" onChange={(e) => setTitle(e.target.value)} style={{width: '100%'}}></input></p>
@@ -59,7 +61,7 @@ return (
     )
 }
 
-export default AddOpenModal;
+export default AddPostModal;
 
 const Wrapper = styled.div`
     position: fixed;
