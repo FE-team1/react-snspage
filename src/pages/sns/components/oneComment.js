@@ -39,7 +39,7 @@ const OneComment = ({comment, editComment, addComment, deleteComment}) => {
                 <CommentWrapper>
                     {/* Cannot read properties of undefined (reading 'User') 이거 왜 뜨냐 왜못읽어. */}
                     <ProfileImg src={comment.User.profileImg}></ProfileImg>
-                    <p style={{fontWeight:'bold', marginTop:'8px'}}>{comment.User.nickName}</p>
+                    <span style={{fontWeight:'bold', marginTop:'30px'}}>{comment.User.nickName}</span>
                     {/* editmode가 true면 수정할 수 있게 한다. : 아니면 원래 comment.content가나옴 */}
                     <ContentBox>{isEditMode ?
                     <form onSubmit={editComment}>
@@ -50,13 +50,14 @@ const OneComment = ({comment, editComment, addComment, deleteComment}) => {
                     : comment.content }
                     </ContentBox>
                 </CommentWrapper>
-                    {/* 누르면 editMode되는 이벤트 */}
+                <BtnWrapper>
                     <button onClick={onEditComment}>수정</button> &nbsp;
                     <button onClick={onDeleteComment}>삭제</button>
+                </BtnWrapper>
+                    {/* 누르면 editMode되는 이벤트 */}
                     {/* 수정해야할 경우 comment.content수정  */}
                     {/* ref로 줄경우 textarea에 기본값을 줄 수 없다 */}
                     {/* 왜이렇게 많이 생기는 걸까요..ㅋㅋ 난감 */}
-                <HiMiniPaperAirplane />
             </div>
         </>
     )
@@ -66,10 +67,12 @@ export default OneComment;
 
 const CommentWrapper = styled.div`
     background-color: #e9e9e9;
-    border-radius: 20px;
-    width: 100%;
+    border-radius: 30px;
+    width: 98%;
     /* 왜 세로로 안뜰까요.?????? */
     display: flex;
+    margin: 10px;
+    /* 사실은 요소만큼만 댓글ㅇ이 등장하게 하고싶어요 */
 `
 
 const ProfileImg = styled.img`
@@ -84,6 +87,11 @@ const ContentBox = styled.div`
     position: relative;
     box-sizing: border-box;
     width: 600px;
-    left: 0px;
+    left: 20px;
+    /* 왼쪽으로 오게만들고 싶은데ㅠ */
     top: 30px;
+`
+
+const BtnWrapper = styled.div`
+    margin: 0px 10px;
 `

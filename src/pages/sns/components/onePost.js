@@ -14,15 +14,19 @@ const OnePost = ({post, posts, setPosts}) => {
     // 상태끼리는 다 모아주기             
 
     const [comments, setComments] = useState(post.Comments);
-    // 잘 불러와진다
-    console.log(`comments:`, comments)
+    // 콘솔시 잘 불러와진다
     const [content, setContent] = useState('')
     // isLiked, setIsLiked 
     const [isLiked, setIsLiked] = useState(false);
-    // onToggleIsLiked!! 
     const onToggleIsLiked = () => {
         // setIsLIked((prev) => !prev)
         setIsLiked((prev) => !prev);
+    }
+
+    const [isShowComment, setIsShowComment] = useState(false);
+
+    const onClickShowComment = () => {
+        setIsShowComment((prev) => !prev);
     }
 
     // 수정관련 로직을 여기다가 만들어서 !
@@ -34,7 +38,7 @@ const OnePost = ({post, posts, setPosts}) => {
             const findPost = _posts.find((el) => el.id === post.id ) // 1
             const findComment = findPost.Comments.find((comment) => comment.id === id) // 2 : undefined뜸
         }
-    
+    // 댓글 추가 기능
     const onAddComment = (e) => {
         e.preventDefault();
         setComments((prev) => [{
@@ -58,12 +62,6 @@ const OnePost = ({post, posts, setPosts}) => {
         // 지금 댓글의 데이터는 맵 돌려서 데이터가 들어가고 있다.
         // 내가 새로 작성한 댓글이 그 속에 들어가게 하려면 어떻게 해야할까ㅠ
         // 해결했다ㅠㅠㅠ!!!!! 왜 comments 상태를 맵자체에 넣을 생각을 못햇을까..? 
-    }
-
-    const [isShowComment, setIsShowComment] = useState(false);
-
-    const onClickShowComment = () => {
-        setIsShowComment((prev) => !prev);
     }
 
     return (
@@ -100,7 +98,6 @@ const OnePost = ({post, posts, setPosts}) => {
                             <AiOutlineHeart style={{ fontSize: "35px" }} />
                         )}
                     </div>
-                    {/* 댓글 아이콘 클릭이벤트가 먹지 않는다ㅠ*/}
                     <div onClick={onClickShowComment}>
                         <FaRegComment style={{ fontSize: "30px", marginLeft:"10px" }} />
                     </div>
@@ -110,7 +107,8 @@ const OnePost = ({post, posts, setPosts}) => {
                     <CommentWrapper>
                         {/* 댓글의 input부분 */}
                         <form onSubmit={onAddComment}>
-                            <input value={content} placeholder='댓글을 입력해주세요' onChange={(e) => setContent(e.target.value)}/><button>등록</button>
+                            <input value={content} placeholder='댓글을 입력해주세요' style={{width: '500px', height: '2.5em', margin:'10px'}} onChange={(e) => setContent(e.target.value)}/>
+                            <button>등록</button>
                         </form>
                     {comments && comments.map((comment) => 
                     // editPost물려주기
@@ -136,6 +134,7 @@ const Wrapper =  styled.div`
     height: 120%;
     /* 왜 100%...???왜 짤리지..? */
     margin: 0 auto;
+    padding-bottom: 100px;
     border-radius: 30px;
     flex-direction: column;
 `
