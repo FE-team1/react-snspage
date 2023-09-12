@@ -5,6 +5,7 @@ import { HiMiniPaperAirplane } from "react-icons/hi2";
 // setPosts 부모로 setPosts 프롭스드릴링일어남
 const OneComment = ({comment, editComment, addComment, deleteComment}) => {
     const [isEditMode, setIsEditMode] = useState(false);
+
     // comment가 왜 state기본값으로 설정이 안되는 걸까
     // 혹시 몰라 MockPosts.Comments로 가져와봤는데 실패
     // 콘솔찍어보면 잘가져와진다 콘솔을 보고 다시 천천히 선택자를 맞춰봐야겠다
@@ -14,26 +15,11 @@ const OneComment = ({comment, editComment, addComment, deleteComment}) => {
         editComment();
         setIsEditMode(false);
     }
-    console.log()
+
     
     const onDeleteComment = () => {
         deleteComment();
     }
-    // 어떻게 하는건지 모르겠다 아오,.... id값을 제대로 가지고온건지도 모르겠고 화낭다 
-    // 뭔가 .value .current이런 거에대한 개념이 아직 부족한듯하다...
-    // const editComment = (e) => {
-    //     e.preventDefault(); 
-    //     setCommentList((commentList) => {
-    //         const updateCommentList = [];
-    //         for(let i=0; i<commentList.length; i++) {
-    //             if(commentList[i] === comment){
-    //                 updateCommentList.push(commentInput.current.value);
-    //             }
-    //         }
-    //         setCommentList(updateCommentList)
-    //     })
-    // setIsEditMode(false);
-    // }
 
     // const onDeleteComment = () => {
     //     const newComment = [];
@@ -53,12 +39,12 @@ const OneComment = ({comment, editComment, addComment, deleteComment}) => {
                 <CommentWrapper>
                     {/* Cannot read properties of undefined (reading 'User') 이거 왜 뜨냐 왜못읽어. */}
                     <ProfileImg src={comment.User.profileImg}></ProfileImg>
-                    <p style={{fontWeight:'bold', margin:'6px 75px'}}>{comment.User.nickName}</p>
+                    <p style={{fontWeight:'bold', marginTop:'8px'}}>{comment.User.nickName}</p>
                     {/* editmode가 true면 수정할 수 있게 한다. : 아니면 원래 comment.content가나옴 */}
                     <ContentBox>{isEditMode ?
                     <form onSubmit={editComment}>
-                        <input id={comment.User.id} defaultValue={comment.content}
-                        style={{width: '500px', height: '2.5em', border: 'none', resize:'none', display:'flex'}}></input> 
+                        <input defaultValue={comment.content}
+                        style={{width: '500px', height: '2.5em', border: 'none', resize:'none'}}></input> 
                         <HiMiniPaperAirplane /> 
                     </form>
                     : comment.content }
@@ -69,7 +55,7 @@ const OneComment = ({comment, editComment, addComment, deleteComment}) => {
                     <button onClick={onDeleteComment}>삭제</button>
                     {/* 수정해야할 경우 comment.content수정  */}
                     {/* ref로 줄경우 textarea에 기본값을 줄 수 없다 */}
-                {/* 왜이렇게 많이 생기는 걸까요..ㅋㅋ 난감 */}
+                    {/* 왜이렇게 많이 생기는 걸까요..ㅋㅋ 난감 */}
                 <HiMiniPaperAirplane />
             </div>
         </>
@@ -82,7 +68,6 @@ const CommentWrapper = styled.div`
     background-color: #e9e9e9;
     border-radius: 20px;
     width: 100%;
-    flex-direction: column;
     /* 왜 세로로 안뜰까요.?????? */
     display: flex;
 `
@@ -99,6 +84,6 @@ const ContentBox = styled.div`
     position: relative;
     box-sizing: border-box;
     width: 600px;
-    left: 5px;
-
+    left: 0px;
+    top: 30px;
 `

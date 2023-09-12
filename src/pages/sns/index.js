@@ -10,8 +10,6 @@ import AddPostModal from "./components/addPostModal";
 // 또 에러나서 npm install @faker-js/faker --save-dev 로 해결!
 // npm install react-icons --save
 // npm i shortid
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faPen, faBan, faCheck } from '@fortawesome/free-solid-svg-icons';
 // 문제: console창 켰을때 전체적으로 밀리는 문제, 추가시 이상하게 나옴
 
 const SnsPage = () => {
