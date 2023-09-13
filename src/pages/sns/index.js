@@ -31,7 +31,6 @@ const SnsPage = () => {
     // 목포스트 불러오기 상태로 불러온다!
     // posts, setPosts
     const [posts, setPosts] = useState(MockPosts(10));
-    console.log(posts)
     // 맵돌려서 여러개 뜨게..?
 
 

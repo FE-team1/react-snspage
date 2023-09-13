@@ -14,7 +14,7 @@ const OnePost = ({post, posts, setPosts}) => {
     // 상태끼리는 다 모아주기             
 
     const [comments, setComments] = useState(post.Comments);
-    // 콘솔시 잘 불러와진다
+    // 콘솔 시 잘 불러와진다
     const [content, setContent] = useState('')
     // isLiked, setIsLiked 
     const [isLiked, setIsLiked] = useState(false);
@@ -31,13 +31,13 @@ const OnePost = ({post, posts, setPosts}) => {
 
     // 수정관련 로직을 여기다가 만들어서 !
     // 시간복잡도는 상승하지만 데이터의 일관성이 유지된다.
-        const editComment = (id) => {
-            // 1번째 방법 (중첩객체 =>  find 두번씀)
-            // 중첩객체의 깊은복사 해결
-            const _posts = [...posts]
-            const findPost = _posts.find((el) => el.id === post.id ) // 1
-            const findComment = findPost.Comments.find((comment) => comment.id === id) // 2 : undefined뜸
-        }
+        // const editComment = (id) => {
+        //     // 1번째 방법 (중첩객체 =>  find 두번씀)
+        //     // 중첩객체의 깊은복사 해결
+        //     const _posts = [...posts]
+        //     const findPost = _posts.find((el) => el.id === post.id ) // 1
+        //     const findComment = findPost.Comments.find((comment) => comment.id === id) // 2 : undefined뜸
+        // }
     // 댓글 추가 기능
     const onAddComment = (e) => {
         e.preventDefault();
@@ -64,6 +64,7 @@ const OnePost = ({post, posts, setPosts}) => {
         // 해결했다ㅠㅠㅠ!!!!! 왜 comments 상태를 맵자체에 넣을 생각을 못햇을까..? 
     }
 
+    // 한개의 포스트 마다 여백을 주려면 어떻게 해야할까?
     return (
         <Wrapper>
             <Logo>Logo</Logo>
@@ -107,15 +108,16 @@ const OnePost = ({post, posts, setPosts}) => {
                     <CommentWrapper>
                         {/* 댓글의 input부분 */}
                         <form onSubmit={onAddComment}>
-                            <input value={content} placeholder='댓글을 입력해주세요' style={{width: '500px', height: '2.5em', margin:'10px'}} onChange={(e) => setContent(e.target.value)}/>
-                            <button>등록</button>
+                            <input value={content} placeholder='댓글을 입력해주세요' style={{width: '715px', height: '2.5em', margin:'12px', border:'0.8px solid #2d2d2d'}} 
+                            onChange={(e) => setContent(e.target.value)}/>
+                            <button style={{padding:'10px'}}>등록</button>
                         </form>
-                    {comments && comments.map((comment) => 
-                    // editPost물려주기
-                    <OneComment comment={comment} editComment={editComment}></OneComment>)}
-                        {/* 꽉찬하트 <FontAwesomeIcon icon="fas fa-heart" /> */}
-                        {/* 사이즈 조절어떻게해.. ?? fa-2x 안됨 => className -> App.css가서해결*/
-                    }
+                        {comments && comments.map((comment) => 
+                        // editPost물려주기
+                        <OneComment post={post} posts={posts} setPosts={setPosts} comment={comment} comments={comments} setComments={setComments}></OneComment>)}
+                            {/* 꽉찬하트 <FontAwesomeIcon icon="fas fa-heart" /> */}
+                            {/* 사이즈 조절어떻게해.. ?? fa-2x 안됨 => className -> App.css가서해결*/
+                        }
                     </CommentWrapper>
                         }
             </ContentWrapper>
@@ -134,7 +136,7 @@ const Wrapper =  styled.div`
     height: 120%;
     /* 왜 100%...???왜 짤리지..? */
     margin: 0 auto;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
     border-radius: 30px;
     flex-direction: column;
 `

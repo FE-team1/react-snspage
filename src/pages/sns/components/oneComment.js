@@ -3,8 +3,9 @@ import { styled } from "styled-components";
 import { HiMiniPaperAirplane } from "react-icons/hi2";
 
 // setPosts 부모로 setPosts 프롭스드릴링일어남
-const OneComment = ({comment, editComment, addComment, deleteComment}) => {
+const OneComment = ({post, posts, setPosts, comment, comments, setComments}) => {
     const [isEditMode, setIsEditMode] = useState(false);
+    const [editComment, setEditComment] = useState(comment.content);
 
     // comment가 왜 state기본값으로 설정이 안되는 걸까
     // 혹시 몰라 MockPosts.Comments로 가져와봤는데 실패
@@ -12,24 +13,36 @@ const OneComment = ({comment, editComment, addComment, deleteComment}) => {
     // 맞는데 외 않 되;; (심한욕)
     const onEditComment = () =>  {
         if(!isEditMode) return setIsEditMode(true);
-        editComment();
         setIsEditMode(false);
     }
 
-    
-    const onDeleteComment = () => {
-        deleteComment();
-    }
-
-    // const onDeleteComment = () => {
-    //     const newComment = [];
-    //     for(let i=0; i<comment.length; i++) {
-    //         if(comment[i] !== comment) {
-    //             newComment.push(comment)
-    //         }
-    //     }
-    //     setCommentList(newComment)
+    // const onChangeComment = (e) => {
+    //     e.preventDefault();
+    //     const _post = [...posts]
+    //     const findPost = _post.find((el) => el.id === post.id ) // 1
+    //     const findComment = findPost.Comments.filter((el)=> el.id === id)
+    //     // 값이 바뀔때마다 input값의 value로 세팅됨
+    //     setEditComment(e.target.value)
     // }
+
+
+    // 새로 생성한 댓글은 삭제가 잘 된다. 그러나 원래 있던 것들이 되지않는 문제
+    const onDeleteComment = () => {
+        const _post = [...posts]
+        const findPost = _post.find((el) => el.id === post.id) // 1
+        console.log(`findpost`, findPost) //undefined.... -> // post를 props로 내려줘야만 선택됨
+        // 같지않은 것만 setComments해주기
+        const findComment = findPost.Comments.filter((el)=> el.id !== comment.id)
+        console.log(`comment.id:`, comment.id)
+        console.log(`findpostcomment:`, findPost.Comments)
+        // 선택한 아이디를 인식 못하는듯 하다...
+        // 어떻게 가져오는거ㅑㅇ; => comment.id !!
+        console.log(`findComment`, findComment)
+        // 원래있던 댓글을 findComment 배열로 바꿈!!
+        findPost.Comments = findComment;
+        // 댓글 부분 findComment~!~!~@!~ !~ 
+        setComments(findComment);
+    }
 
     // setPosts(prev) 프롭스드릴링 해소를 위해서는 부모에서 작업하는게 낫다 return prev
 
@@ -42,10 +55,9 @@ const OneComment = ({comment, editComment, addComment, deleteComment}) => {
                     <span style={{fontWeight:'bold', marginTop:'30px'}}>{comment.User.nickName}</span>
                     {/* editmode가 true면 수정할 수 있게 한다. : 아니면 원래 comment.content가나옴 */}
                     <ContentBox>{isEditMode ?
-                    <form onSubmit={editComment}>
-                        <input defaultValue={comment.content}
+                    <form>
+                        <input value={editComment} 
                         style={{width: '500px', height: '2.5em', border: 'none', resize:'none'}}></input> 
-                        <HiMiniPaperAirplane /> 
                     </form>
                     : comment.content }
                     </ContentBox>
@@ -68,10 +80,10 @@ export default OneComment;
 const CommentWrapper = styled.div`
     background-color: #e9e9e9;
     border-radius: 30px;
-    width: 98%;
+    width: 97%;
     /* 왜 세로로 안뜰까요.?????? */
     display: flex;
-    margin: 10px;
+    margin: 12px;
     /* 사실은 요소만큼만 댓글ㅇ이 등장하게 하고싶어요 */
 `
 
@@ -88,10 +100,9 @@ const ContentBox = styled.div`
     box-sizing: border-box;
     width: 600px;
     left: 20px;
-    /* 왼쪽으로 오게만들고 싶은데ㅠ */
     top: 30px;
 `
 
 const BtnWrapper = styled.div`
-    margin: 0px 10px;
+    margin: 0px 12px;
 `
