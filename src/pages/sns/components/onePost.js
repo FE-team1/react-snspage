@@ -114,7 +114,7 @@ const OnePost = ({post, posts, setPosts}) => {
                         </form>
                         {comments && comments.map((comment) => 
                         // editPost물려주기
-                        <OneComment post={post} posts={posts} setPosts={setPosts} comment={comment} comments={comments} setComments={setComments}></OneComment>)}
+                        <OneComment post={post} posts={posts} comment={comment} comments={comments} setComments={setComments}></OneComment>)}
                             {/* 꽉찬하트 <FontAwesomeIcon icon="fas fa-heart" /> */}
                             {/* 사이즈 조절어떻게해.. ?? fa-2x 안됨 => className -> App.css가서해결*/
                         }

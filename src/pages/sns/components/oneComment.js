@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { styled } from "styled-components";
-import { HiMiniPaperAirplane } from "react-icons/hi2";
 
 // setPosts 부모로 setPosts 프롭스드릴링일어남
-const OneComment = ({post, posts, setPosts, comment, comments, setComments}) => {
+const OneComment = ({post, posts, comment, comments, setComments}) => {
     const [isEditMode, setIsEditMode] = useState(false);
-    const [editComment, setEditComment] = useState(comment.content);
+    const editCommentInput = useRef(null)
+    console.log(editCommentInput)
 
     // comment가 왜 state기본값으로 설정이 안되는 걸까
     // 혹시 몰라 MockPosts.Comments로 가져와봤는데 실패
@@ -13,17 +13,20 @@ const OneComment = ({post, posts, setPosts, comment, comments, setComments}) => 
     // 맞는데 외 않 되;; (심한욕)
     const onEditComment = () =>  {
         if(!isEditMode) return setIsEditMode(true);
+        const _post = [...posts]
+        const findPost = _post.find((el) => el.id === post.id ) // 1
+        const findComment = findPost.Comments.filter((el)=> el.id === comment.id) // 2
+        findPost.Comments = findComment;
+        // 원하는 값으로 수정된 + 원래 값들이 나열된 배열이 들어가야함
+        setComments((comments) => {
+            const newComment = comments.find((el) => el.id === comment.id)
+            // 잘몰랐던 부분 editCommentInput의 current.value를 가져오기!!
+            newComment.content = editCommentInput.current.value;
+            // 댓글의 리스트 리턴
+            return comments
+        })
         setIsEditMode(false);
     }
-
-    // const onChangeComment = (e) => {
-    //     e.preventDefault();
-    //     const _post = [...posts]
-    //     const findPost = _post.find((el) => el.id === post.id ) // 1
-    //     const findComment = findPost.Comments.filter((el)=> el.id === id)
-    //     // 값이 바뀔때마다 input값의 value로 세팅됨
-    //     setEditComment(e.target.value)
-    // }
 
 
     // 새로 생성한 댓글은 삭제가 잘 된다. 그러나 원래 있던 것들이 되지않는 문제
@@ -32,11 +35,11 @@ const OneComment = ({post, posts, setPosts, comment, comments, setComments}) => 
         const findPost = _post.find((el) => el.id === post.id) // 1
         console.log(`findpost`, findPost) //undefined.... -> // post를 props로 내려줘야만 선택됨
         // 같지않은 것만 setComments해주기
-        const findComment = findPost.Comments.filter((el)=> el.id !== comment.id)
+        const findComment = findPost.Comments.filter((el)=> el.id !== comment.id) // 2
         console.log(`comment.id:`, comment.id)
         console.log(`findpostcomment:`, findPost.Comments)
         // 선택한 아이디를 인식 못하는듯 하다...
-        // 어떻게 가져오는거ㅑㅇ; => comment.id !!
+        // 어떻게 가져오는거ㅑㅇ; => comment.id !! 각각하나하나
         console.log(`findComment`, findComment)
         // 원래있던 댓글을 findComment 배열로 바꿈!!
         findPost.Comments = findComment;
@@ -55,10 +58,8 @@ const OneComment = ({post, posts, setPosts, comment, comments, setComments}) => 
                     <span style={{fontWeight:'bold', marginTop:'30px'}}>{comment.User.nickName}</span>
                     {/* editmode가 true면 수정할 수 있게 한다. : 아니면 원래 comment.content가나옴 */}
                     <ContentBox>{isEditMode ?
-                    <form>
-                        <input value={editComment} 
+                        <input defaultValue={comment.content} ref={editCommentInput}
                         style={{width: '500px', height: '2.5em', border: 'none', resize:'none'}}></input> 
-                    </form>
                     : comment.content }
                     </ContentBox>
                 </CommentWrapper>
