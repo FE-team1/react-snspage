@@ -114,6 +114,16 @@ src
 - footer(css 구현 x)
 - 페이지네이션 구현으로 전환(feat/pagination)
 
+
+### 9/11
+- 댓글 Input부분과 CSS개선
+
+### 9/12
+- 댓글 Create해결
+
+### 9/13
+- 댓글 CRUD 모두 완료
+
 #### 아쉬운 점
 - 깃허브 : merge!
 
