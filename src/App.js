@@ -5,6 +5,7 @@ import { route } from "./routes/route"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import GlobalStyles from "./styles/global.style";
 =======
 >>>>>>> 77946d4 (reabase : mreged main)
@@ -17,6 +18,11 @@ import GlobalStyles from "./styles/global.style";
 >>>>>>> 13ac48e (reabase : mreged main)
 =======
 >>>>>>> 451e7a7 (feat: snspage모달창구현, 목데이터 받아와야함)
+=======
+import GlobalStyles from "./styles/global.style";
+=======
+>>>>>>> 77946d4 (reabase : mreged main)
+>>>>>>> ad9636a (reabase : mreged main)
 
 function App() {
   return (
@@ -25,6 +31,7 @@ function App() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <GlobalStyles />
 =======
 >>>>>>> 77946d4 (reabase : mreged main)
@@ -37,6 +44,11 @@ function App() {
 >>>>>>> 13ac48e (reabase : mreged main)
 =======
 >>>>>>> 451e7a7 (feat: snspage모달창구현, 목데이터 받아와야함)
+=======
+      <GlobalStyles />
+=======
+>>>>>>> 77946d4 (reabase : mreged main)
+>>>>>>> ad9636a (reabase : mreged main)
       <RouterProvider router={route} />
     </>
   )
